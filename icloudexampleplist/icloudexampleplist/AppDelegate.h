@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  icloud-example-plist
+//  icloudexampleplist
 //
 //  Created by Patrick Steiner on 01.02.13.
 //  Copyright (c) 2013 Patrick Steiner. All rights reserved.
