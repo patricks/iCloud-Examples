@@ -19,7 +19,6 @@
 		CD6BBFD316BC57F0008237D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BBFD216BC57F0008237D5 /* ViewController.m */; };
 		CD6BBFD616BC57F0008237D5 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6BBFD416BC57F0008237D5 /* ViewController_iPhone.xib */; };
 		CD6BBFD916BC57F0008237D5 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6BBFD716BC57F0008237D5 /* ViewController_iPad.xib */; };
-		CD6BBFE216BC5880008237D5 /* PlistDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BBFE116BC5880008237D5 /* PlistDataStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +40,6 @@
 		CD6BBFD516BC57F0008237D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		CD6BBFD816BC57F0008237D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		CD6BBFDF16BC57FA008237D5 /* icloudexampleplist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = icloudexampleplist.entitlements; sourceTree = "<group>"; };
-		CD6BBFE016BC5880008237D5 /* PlistDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistDataStore.h; sourceTree = "<group>"; };
-		CD6BBFE116BC5880008237D5 /* PlistDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistDataStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +94,6 @@
 				CD6BBFD416BC57F0008237D5 /* ViewController_iPhone.xib */,
 				CD6BBFD716BC57F0008237D5 /* ViewController_iPad.xib */,
 				CD6BBFC016BC57F0008237D5 /* Supporting Files */,
-				CD6BBFE016BC5880008237D5 /* PlistDataStore.h */,
-				CD6BBFE116BC5880008237D5 /* PlistDataStore.m */,
 			);
 			path = icloudexampleplist;
 			sourceTree = "<group>";
@@ -187,7 +182,6 @@
 				CD6BBFC616BC57F0008237D5 /* main.m in Sources */,
 				CD6BBFCA16BC57F0008237D5 /* AppDelegate.m in Sources */,
 				CD6BBFD316BC57F0008237D5 /* ViewController.m in Sources */,
-				CD6BBFE216BC5880008237D5 /* PlistDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

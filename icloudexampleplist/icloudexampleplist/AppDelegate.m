@@ -9,16 +9,11 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
-#import "PlistDataStore.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //PlistDataStore *dataStore = [[PlistDataStore alloc] init];
-    
-    //[dataStore writeStringToStore:[[UIDevice currentDevice] name]];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

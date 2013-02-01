@@ -19,6 +19,7 @@
 @synthesize iCloudDataLabel;
 @synthesize inputDataField;
 
+/** The only key for the datastore. */
 static NSString *kDataKey = @"dataKey";
 
 - (void)viewDidLoad
@@ -30,10 +31,17 @@ static NSString *kDataKey = @"dataKey";
     [self setupiCloud];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+/** Setup the iCloud connection. */
 - (void)setupiCloud
 {
     NSUserDefaults *currentiCloudToken = [[NSFileManager defaultManager] ubiquityIdentityToken];
     
+    // check if icloud services are available on this device
     if (currentiCloudToken) {
         NSLog(@"iCloud is available: %@", currentiCloudToken);
         
@@ -54,11 +62,7 @@ static NSString *kDataKey = @"dataKey";
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
+/** Gets called if there are changes in icloud kv-store. */
 - (void)storeDidChange:(NSNotification *)notification {
     NSLog(@"KV-Store did change");
     
@@ -74,6 +78,7 @@ static NSString *kDataKey = @"dataKey";
     }
 }
 
+/** Change the iCloud kv-store item. */
 - (void)changeDataString:(NSString *)newDataString
 {
     NSString *data = [NSString stringWithFormat:@"%@ from %@", newDataString, [[UIDevice currentDevice] name]];
@@ -82,7 +87,12 @@ static NSString *kDataKey = @"dataKey";
     iCloudDataLabel.text = data;
 }
 
+/** Gets calles if the button is pressed.
+ * @param sender The sender button.
+ */
 - (IBAction)storeButtonPressed:(id)sender {
+    
+    // store the input from the textfield into the iCloud kv-store
     [self changeDataString: inputDataField.text];
 }
 
