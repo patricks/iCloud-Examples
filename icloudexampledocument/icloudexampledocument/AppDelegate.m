@@ -87,9 +87,10 @@
                                              selector:@selector(queryDidFinishGathering:)
                                                  name:NSMetadataQueryDidFinishGatheringNotification
                                                object:newQuery];
+    [newQuery startQuery];
 }
 
-- (void)queryDidFinsishGahthering:(NSNotification *)notification
+- (void)queryDidFinishGathering:(NSNotification *)notification
 {
     NSMetadataQuery *newQuery = [notification object];
     [newQuery disableUpdates];

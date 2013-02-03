@@ -42,6 +42,7 @@
 		CD0B46DD16BF023500F5A072 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		CD0B46E416BF04EA00F5A072 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		CD0B46E516BF04EA00F5A072 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		CD4E08E616BF289F00227ACF /* icloudexampledocument.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = icloudexampledocument.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 		CD0B46C416BF023500F5A072 /* icloudexampledocument */ = {
 			isa = PBXGroup;
 			children = (
+				CD4E08E616BF289F00227ACF /* icloudexampledocument.entitlements */,
 				CD0B46CD16BF023500F5A072 /* AppDelegate.h */,
 				CD0B46CE16BF023500F5A072 /* AppDelegate.m */,
 				CD0B46D616BF023500F5A072 /* ViewController.h */,
@@ -280,6 +282,7 @@
 		CD0B46E216BF023500F5A072 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = icloudexampledocument/icloudexampledocument.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "icloudexampledocument/icloudexampledocument-Prefix.pch";
 				INFOPLIST_FILE = "icloudexampledocument/icloudexampledocument-Info.plist";
@@ -291,6 +294,7 @@
 		CD0B46E316BF023500F5A072 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = icloudexampledocument/icloudexampledocument.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "icloudexampledocument/icloudexampledocument-Prefix.pch";
 				INFOPLIST_FILE = "icloudexampledocument/icloudexampledocument-Info.plist";
@@ -318,6 +322,7 @@
 				CD0B46E316BF023500F5A072 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
