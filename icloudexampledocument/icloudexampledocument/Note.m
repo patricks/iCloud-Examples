@@ -26,6 +26,8 @@
         content = @"Empty";
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"noteMotified" object:self];
+    
     return YES;
 }
 

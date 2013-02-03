@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Note.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextViewDelegate>
+
+@property (strong) Note *note;
+@property (weak) IBOutlet UITextView *noteView;
 
 @end
