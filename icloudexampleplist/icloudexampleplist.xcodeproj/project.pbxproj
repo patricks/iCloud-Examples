@@ -316,6 +316,7 @@
 				CD6BBFDE16BC57F0008237D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
