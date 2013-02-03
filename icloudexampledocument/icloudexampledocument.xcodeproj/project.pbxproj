@@ -19,6 +19,7 @@
 		CD0B46D816BF023500F5A072 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B46D716BF023500F5A072 /* ViewController.m */; };
 		CD0B46DB16BF023500F5A072 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0B46D916BF023500F5A072 /* ViewController_iPhone.xib */; };
 		CD0B46DE16BF023500F5A072 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0B46DC16BF023500F5A072 /* ViewController_iPad.xib */; };
+		CD0B46E616BF04EA00F5A072 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B46E516BF04EA00F5A072 /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		CD0B46D716BF023500F5A072 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CD0B46DA16BF023500F5A072 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		CD0B46DD16BF023500F5A072 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		CD0B46E416BF04EA00F5A072 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		CD0B46E516BF04EA00F5A072 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				CD0B46D916BF023500F5A072 /* ViewController_iPhone.xib */,
 				CD0B46DC16BF023500F5A072 /* ViewController_iPad.xib */,
 				CD0B46C516BF023500F5A072 /* Supporting Files */,
+				CD0B46E416BF04EA00F5A072 /* Note.h */,
+				CD0B46E516BF04EA00F5A072 /* Note.m */,
 			);
 			path = icloudexampledocument;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				CD0B46CB16BF023500F5A072 /* main.m in Sources */,
 				CD0B46CF16BF023500F5A072 /* AppDelegate.m in Sources */,
 				CD0B46D816BF023500F5A072 /* ViewController.m in Sources */,
+				CD0B46E616BF04EA00F5A072 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,13 @@
 
 #import "ViewController.h"
 
+// The default filename for the note
+#define kFilename @"mynote.note"
+
 @implementation AppDelegate
+
+@synthesize note;
+@synthesize query;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -31,6 +37,9 @@
     // check if icloud services are available on this device
     if (currentiCloudToken) {
         NSLog(@"iCloud is available: %@", currentiCloudToken);
+        
+        // load the note
+        [self loadNote];
     } else {
         NSLog(@"No iCloud access");
     }
@@ -64,5 +73,68 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)loadNote
+{
+    NSMetadataQuery *newQuery = [[NSMetadataQuery alloc] init];
+    query = newQuery;
+    [newQuery setSearchScopes:[NSArray arrayWithObject:NSMetadataQueryUbiquitousDocumentsScope]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", NSMetadataItemFSNameKey, kFilename];
+    [newQuery setPredicate:predicate];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(queryDidFinishGathering:)
+                                                 name:NSMetadataQueryDidFinishGatheringNotification
+                                               object:newQuery];
+}
+
+- (void)queryDidFinsishGahthering:(NSNotification *)notification
+{
+    NSMetadataQuery *newQuery = [notification object];
+    [newQuery disableUpdates];
+    [newQuery stopQuery];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSMetadataQueryDidFinishGatheringNotification
+                                                  object:newQuery];
+    
+    query = nil;
+    
+    [self loadData:newQuery];
+}
+
+- (void)loadData:(NSMetadataQuery *)newQuery
+{
+    if ([newQuery resultCount] == 1) {
+        NSMetadataItem *item = [newQuery resultAtIndex:0];
+        NSURL *url = [item valueForAttribute:NSMetadataItemURLKey];
+        Note *newNote = [[Note alloc] initWithFileURL:url];
+        note = newNote;
+        
+        [note openWithCompletionHandler:^(BOOL success){
+            if (success) {
+                NSLog(@"iCloud note opened");
+            } else {
+                NSLog(@"Failed to open iCloud note");
+            }
+        }];
+    } else { // add a new sample document
+        NSURL *ubiq = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+        NSURL *ubiquitousPackage = [[ubiq URLByAppendingPathComponent:@"Documents"] URLByAppendingPathComponent:kFilename];
+        
+        Note *newNote = [[Note alloc] initWithFileURL:ubiquitousPackage];
+        note = newNote;
+        
+        [newNote saveToURL:[newNote fileURL] forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+            if (success) {
+                [newNote openWithCompletionHandler:^(BOOL success) {
+                    NSLog(@"New Note opened from iCloud");
+                }];
+            }
+        }];
+    }
+}
+
 
 @end
