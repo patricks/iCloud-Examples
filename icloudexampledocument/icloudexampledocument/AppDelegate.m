@@ -23,6 +23,18 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    
+    // check if iCloud is available
+    NSUserDefaults *currentiCloudToken = [[NSFileManager defaultManager] ubiquityIdentityToken];
+    
+    // check if icloud services are available on this device
+    if (currentiCloudToken) {
+        NSLog(@"iCloud is available: %@", currentiCloudToken);
+    } else {
+        NSLog(@"No iCloud access");
+    }
+    
     return YES;
 }
 
