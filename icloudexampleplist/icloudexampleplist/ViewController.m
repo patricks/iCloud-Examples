@@ -63,7 +63,8 @@ static NSString *kDataKey = @"dataKey";
 }
 
 /** Gets called if there are changes in icloud kv-store. */
-- (void)storeDidChange:(NSNotification *)notification {
+- (void)storeDidChange:(NSNotification *)notification
+{
     NSLog(@"KV-Store did change");
     
     NSDictionary *userInfo = [notification userInfo];
@@ -90,8 +91,8 @@ static NSString *kDataKey = @"dataKey";
 /** Gets calles if the button is pressed.
  * @param sender The sender button.
  */
-- (IBAction)storeButtonPressed:(id)sender {
-    
+- (IBAction)storeButtonPressed:(id)sender
+{    
     // store the input from the textfield into the iCloud kv-store
     [self changeDataString: inputDataField.text];
 }
