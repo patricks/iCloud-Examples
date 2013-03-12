@@ -73,6 +73,7 @@ static NSString *kDataKey = @"dataKey";
     if (reasonForChange) {
         NSInteger reason = [[userInfo objectForKey:NSUbiquitousKeyValueStoreChangeReasonKey] integerValue];
         
+        // only update if data on server changes or there is a intial sync
         if (reason == NSUbiquitousKeyValueStoreServerChange || reason == NSUbiquitousKeyValueStoreInitialSyncChange) {
             iCloudDataLabel.text = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:kDataKey];
         }

@@ -120,7 +120,7 @@
                 NSLog(@"Failed to open iCloud note");
             }
         }];
-    } else { // add a new sample document
+    } else { // add a new empty note
         NSURL *ubiq = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
         NSURL *ubiquitousPackage = [[ubiq URLByAppendingPathComponent:@"Documents"] URLByAppendingPathComponent:kFilename];
         
