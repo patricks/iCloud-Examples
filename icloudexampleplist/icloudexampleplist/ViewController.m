@@ -68,10 +68,10 @@ static NSString *kDataKey = @"dataKey";
     NSLog(@"KV-Store did change");
     
     NSDictionary *userInfo = [notification userInfo];
-    NSNumber* reasonForChange = [userInfo objectForKey:NSUbiquitousKeyValueStoreChangeReasonKey];
+    NSNumber* reasonForChange = userInfo[NSUbiquitousKeyValueStoreChangeReasonKey];
     
     if (reasonForChange) {
-        NSInteger reason = [[userInfo objectForKey:NSUbiquitousKeyValueStoreChangeReasonKey] integerValue];
+        NSInteger reason = [userInfo[NSUbiquitousKeyValueStoreChangeReasonKey] integerValue];
         
         // only update if data on server changes or there is a intial sync
         if (reason == NSUbiquitousKeyValueStoreServerChange || reason == NSUbiquitousKeyValueStoreInitialSyncChange) {

@@ -78,7 +78,7 @@
 {
     NSMetadataQuery *newQuery = [[NSMetadataQuery alloc] init];
     query = newQuery;
-    [newQuery setSearchScopes:[NSArray arrayWithObject:NSMetadataQueryUbiquitousDocumentsScope]];
+    [newQuery setSearchScopes:@[NSMetadataQueryUbiquitousDocumentsScope]];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", NSMetadataItemFSNameKey, kFilename];
     [newQuery setPredicate:predicate];
