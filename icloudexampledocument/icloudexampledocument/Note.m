@@ -10,20 +10,18 @@
 
 @implementation Note
 
-@synthesize content;
-
 /**
  * Called if the app reads the data:
  */
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
     if ([contents length] > 0) {
-        content = [[NSString alloc] initWithBytes:[contents bytes]
+        _content = [[NSString alloc] initWithBytes:[contents bytes]
                                            length:[contents length]
                                          encoding:NSUTF8StringEncoding];
     } else {
         // note is created, fill content
-        content = @"Empty";
+        _content = @"Empty";
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"noteMotified" object:self];
@@ -36,11 +34,11 @@
  */
 - (id)contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-    if ([content length] <= 0) {
-        self.content = @"Empty";
+    if ([_content length] <= 0) {
+        _content = @"Empty";
     }
     
-    return [NSData dataWithBytes:[content UTF8String] length:[content length]];
+    return [NSData dataWithBytes:[_content UTF8String] length:[_content length]];
 }
 
 @end

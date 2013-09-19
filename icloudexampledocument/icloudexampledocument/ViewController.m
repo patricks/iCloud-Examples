@@ -8,14 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
-
-@synthesize note;
-@synthesize noteView;
 
 - (void)viewDidLoad
 {
@@ -30,7 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    noteView.text = note.content;
+    _noteView.text = _note.content;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,14 +34,14 @@
 
 - (void)dataReloaded:(NSNotification *)notification
 {
-    note = notification.object;
-    noteView.text = note.content;
+    _note = notification.object;
+    _noteView.text = _note.content;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    note.content = textView.text;
-    [note updateChangeCount:UIDocumentChangeDone];
+    _note.content = textView.text;
+    [_note updateChangeCount:UIDocumentChangeDone];
 }
 
 @end

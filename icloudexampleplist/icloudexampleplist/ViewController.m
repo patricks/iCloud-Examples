@@ -16,9 +16,6 @@
 
 @implementation ViewController
 
-@synthesize iCloudDataLabel;
-@synthesize inputDataField;
-
 /** The only key for the datastore. */
 static NSString *kDataKey = @"dataKey";
 
@@ -26,7 +23,7 @@ static NSString *kDataKey = @"dataKey";
 {
     [super viewDidLoad];
 
-    iCloudDataLabel.text = @"";
+    _iCloudDataLabel.text = @"";
     
     [self setupiCloud];
 }
@@ -54,11 +51,11 @@ static NSString *kDataKey = @"dataKey";
         // start the initial sync
         [[NSUbiquitousKeyValueStore defaultStore] synchronize];
         
-        iCloudDataLabel.text = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:kDataKey];
+        _iCloudDataLabel.text = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:kDataKey];
     } else {
         NSLog(@"No iCloud access");
         
-        iCloudDataLabel.text = @"No iCloud access";
+        _iCloudDataLabel.text = @"No iCloud access";
     }
 }
 
@@ -75,7 +72,7 @@ static NSString *kDataKey = @"dataKey";
         
         // only update if data on server changes or there is a intial sync
         if (reason == NSUbiquitousKeyValueStoreServerChange || reason == NSUbiquitousKeyValueStoreInitialSyncChange) {
-            iCloudDataLabel.text = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:kDataKey];
+            _iCloudDataLabel.text = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:kDataKey];
         }
     }
 }
@@ -86,7 +83,7 @@ static NSString *kDataKey = @"dataKey";
     NSString *data = [NSString stringWithFormat:@"%@ from %@", newDataString, [[UIDevice currentDevice] name]];
     
     [[NSUbiquitousKeyValueStore defaultStore] setString:data forKey:kDataKey];
-    iCloudDataLabel.text = data;
+    _iCloudDataLabel.text = data;
 }
 
 /** Gets calles if the button is pressed.
@@ -95,7 +92,7 @@ static NSString *kDataKey = @"dataKey";
 - (IBAction)storeButtonPressed:(id)sender
 {    
     // store the input from the textfield into the iCloud kv-store
-    [self changeDataString: inputDataField.text];
+    [self changeDataString: _inputDataField.text];
 }
 
 @end
