@@ -22,7 +22,7 @@ static NSString *kDataKey = @"dataKey";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     _iCloudDataLabel.text = @"";
     
     [self setupiCloud];
@@ -42,7 +42,7 @@ static NSString *kDataKey = @"dataKey";
     if (currentiCloudToken) {
         NSLog(@"iCloud is available: %@", currentiCloudToken);
         
-        // listen do icloud key/value store changes
+        // listen do iCloud key/value store changes
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(storeDidChange:)
                                                      name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
@@ -59,7 +59,7 @@ static NSString *kDataKey = @"dataKey";
     }
 }
 
-/** Gets called if there are changes in icloud kv-store. */
+/** Gets called if there are changes in iCloud kv-store. */
 - (void)storeDidChange:(NSNotification *)notification
 {
     NSLog(@"KV-Store did change");
@@ -90,7 +90,7 @@ static NSString *kDataKey = @"dataKey";
  * @param sender The sender button.
  */
 - (IBAction)storeButtonPressed:(id)sender
-{    
+{
     // store the input from the textfield into the iCloud kv-store
     [self changeDataString: _inputDataField.text];
 }
